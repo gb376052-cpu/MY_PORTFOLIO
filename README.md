@@ -6,7 +6,7 @@ A clean, modern, fully responsive personal portfolio website built with HTML5, C
 
 ## 🌟 Live Demo
 
-🔗 **Main Portfolio:** [https://gb376052-cpu.github.io/portfolio/](https://gb376052-cpu.github.io/portfolio/)
+🔗 **Main Portfolio:**(https://gb376052-cpu.github.io/my-portfolio/)
 
 ---
 
