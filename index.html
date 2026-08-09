@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaurav Bisht - Portfolio</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <link rel="stylesheet" href="Style.css">
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header>
         <div class="logo">GB</div>
-        <nav>
+        <nav id="nav-menu">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
@@ -37,15 +36,15 @@
         <div class="hero-text">
             <h3>Hello, I'm</h3>
             <h1>Gaurav Bisht</h1>
-            <h2>Full Stack Developer</h2>
+            <h2>Full Stack Developer...</h2>
             <p>
                 I build modern, responsive and user-friendly websites using HTML, CSS and JavaScript.
             </p>
-            
+
             <!-- Hero Section Buttons -->
             <div class="hero-buttons">
                 <a href="#contact" class="btn">Get in Touch</a>
-                <a href="CV.pdf" target="_blank" class="btn btn-primary">View CV</a>
+                <a href="cv.pdf" target="_blank" class="btn btn-primary">View CV</a>
             </div>
         </div>
 
@@ -106,14 +105,14 @@
         </div>
     </section>
 
-<!-- Projects Section -->
+    <!-- Projects Section -->
     <section class="projects reveal" id="projects">
         <h2>My Projects</h2>
         <div class="projects-container">
-            
+
             <!-- Project 1: Tic Tac Toe -->
             <div class="project-card">
-                <img src="TicTacToe.jpg" alt="Tic Tac Toe Game">
+                <img src="tictactoe.jpg" alt="Tic Tac Toe Game">
                 <h3>Tic-Tac-Toe Game</h3>
                 <p>An interactive, responsive Tic-Tac-Toe game built with modern JavaScript featuring real-time win/draw detection.</p>
                 <div class="tech-stack">
@@ -129,7 +128,7 @@
 
             <!-- Project 2: JS Calculator -->
             <div class="project-card">
-                <img src="Calculator.jpg" alt="JS Calculator">
+                <img src="calculator.jpg" alt="JS Calculator">
                 <h3>JS Calculator</h3>
                 <p>A sleek web-based calculator with standard arithmetic operations, keyboard input support, and clean UI styling.</p>
                 <div class="tech-stack">
@@ -145,22 +144,25 @@
 
             <!-- Project 3: Weather App -->
             <div class="project-card">
-                <img src="Weather.jpg" alt="Weather App">
-                <h3>Weather App</h3>
-                <p>A dynamic weather web app fetching real-time weather forecasts, humidity, and temperature data using Web APIs.</p>
-                <div class="tech-stack">
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-                    <span>Fetch API</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://gb376052-cpu.github.io/Weather-App/" target="_blank" class="btn btn-primary">Live Demo</a>
-                    <a href="https://github.com/gb376052-cpu/Weather-App" target="_blank" class="btn btn-secondary">Source Code</a>
-                </div>
-            </div>
+    <img src="weather.jpg" alt="Weather App">
+    <h3>Weather App</h3>
+    <p>A real-time responsive weather application fetching live temperature, humidity, wind speed, and location coordinates using Open-Meteo REST API & Geocoding API. Built with HTML5, CSS3, and JavaScript.</p>
+    
+    <div class="tech-stack">
+        <span>HTML5</span>
+        <span>CSS3</span>
+        <span>JavaScript</span>
+        <span>API</span>
+    </div>
 
-        </div>
+    <<div class="project-links">
+    <!-- Live Demo Link -->
+    <a href="https://gb376052-cpu.github.io/Weather-App/Weather/" target="_blank" class="btn">Live Demo</a>
+    
+    <!-- GitHub Repository Link -->
+    <a href="https://github.com/gb376052-cpu/Weather-App/tree/main/Weather" target="_blank" class="btn btn-secondary">GitHub</a>
+</div>
+</div>
     </section>
 
     <!-- Services Section -->
@@ -195,18 +197,18 @@
         <form id="contact-form" action="https://formsubmit.co/gb376052@gmail.com" method="POST">
             <!-- Required FormSubmit Settings -->
             <input type="hidden" name="_captcha" value="false">
-            
+
             <input type="text" name="name" id="name" placeholder="Your Name" required>
             <input type="email" name="email" id="email" placeholder="Your Email" required>
             <input type="tel" name="phone" id="phone" placeholder="Your Phone">
             <textarea name="message" id="message" placeholder="Message" required></textarea>
-            
+
             <button type="submit">Send Message 🚀</button>
         </form>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer style="color: white;">
         <h2>Gaurav Bisht</h2>
         <p>Full Stack Web Developer</p>
         <div class="social">

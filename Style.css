@@ -1,4 +1,4 @@
- /* ===================================
+/* ===================================
    Global Styles & Reset
 =================================== */
 html {
@@ -30,6 +30,7 @@ header {
     align-items: center;
     padding: 20px 60px;
     background: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
@@ -55,7 +56,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     margin-left: 25px;
     font-size: 18px;
@@ -64,9 +65,9 @@ nav a {
     transition: 0.4s;
 }
 
-nav a:hover,
-nav a.active {
-    color: #FFD700 !important;
+header nav a:hover,
+header nav a.active {
+    color: #FFD700;
 }
 
 nav a::after {
@@ -86,8 +87,8 @@ nav a.active::after {
 }
 
 #theme-btn {
-    background: orange;
-    color: white;
+    background: #ffa500;
+    color: #ffffff;
     border: none;
     padding: 8px 16px;
     border-radius: 8px;
@@ -113,7 +114,7 @@ nav a.active::after {
 .hamburger .bar {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: #ffffff;
     transition: all 0.3s ease;
 }
 
@@ -137,7 +138,7 @@ nav a.active::after {
 
 .hero-text h3 {
     font-size: 28px;
-    color: orange;
+    color: #ffa500;
 }
 
 .hero-text h1 {
@@ -146,7 +147,7 @@ nav a.active::after {
 }
 
 .hero-text h2 {
-    color: cyan;
+    color: #00ffff;
     margin-bottom: 20px;
 }
 
@@ -166,7 +167,7 @@ nav a.active::after {
 .btn {
     padding: 10px 20px;
     background-color: #FFD700;
-    color: #000;
+    color: #000000;
     font-weight: bold;
     text-decoration: none;
     border-radius: 6px;
@@ -185,7 +186,7 @@ nav a.active::after {
 
 .btn-primary {
     background-color: #FFD700;
-    color: #000;
+    color: #000000;
 }
 
 .btn-secondary {
@@ -196,7 +197,7 @@ nav a.active::after {
 
 .btn-secondary:hover {
     background-color: #FFD700;
-    color: #000;
+    color: #000000;
 }
 
 /* Hero Profile Image */
@@ -281,7 +282,9 @@ nav a.active::after {
     margin-bottom: 8px;
 }
 
-.bar {
+/* Skills Progress Bar Background */
+.skill .bar,
+.skill-bar {
     width: 100%;
     height: 16px;
     background: rgba(255, 255, 255, 0.2);
@@ -289,8 +292,8 @@ nav a.active::after {
     overflow: hidden;
 }
 
-.html { width: 90%; height: 100%; background: orange; }
-.css { width: 80%; height: 100%; background: cyan; }
+.html { width: 90%; height: 100%; background: #ffa500; }
+.css { width: 80%; height: 100%; background: #00ffff; }
 .js { width: 60%; height: 100%; background: #FFD700; }
 .react { width: 40%; height: 100%; background: #00d8ff; }
 
@@ -330,7 +333,7 @@ nav a.active::after {
 
 .project-card:hover {
     transform: translateY(-8px);
-    border-color: orange;
+    border-color: #ffa500;
     box-shadow: 0 15px 30px rgba(255, 165, 0, 0.3);
 }
 
@@ -414,7 +417,7 @@ nav a.active::after {
 
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: orange;
+    border-color: #ffa500;
     box-shadow: 0 15px 30px rgba(255, 165, 0, 0.3);
 }
 
@@ -425,7 +428,7 @@ nav a.active::after {
 
 .service-card h3 {
     margin-bottom: 15px;
-    color: orange;
+    color: #ffa500;
 }
 
 .service-card p {
@@ -459,7 +462,7 @@ input, textarea {
     margin-bottom: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(0, 0, 0, 0.7);
-    color: white;
+    color: #ffffff;
     border-radius: 8px;
     font-size: 16px;
     outline: none;
@@ -472,7 +475,7 @@ input:focus, textarea:focus {
 }
 
 input::placeholder, textarea::placeholder {
-    color: #ccc;
+    color: #cccccc;
 }
 
 textarea {
@@ -483,8 +486,8 @@ textarea {
 form button {
     width: 100%;
     padding: 16px;
-    background: orange;
-    color: white;
+    background: #ffa500;
+    color: #ffffff;
     border: none;
     border-radius: 8px;
     font-size: 18px;
@@ -517,7 +520,7 @@ footer h2 {
 footer p {
     font-size: 16px;
     margin: 8px 0;
-    color: #ccc;
+    color: #cccccc;
 }
 
 .social {
@@ -525,7 +528,7 @@ footer p {
 }
 
 .social a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
@@ -533,13 +536,13 @@ footer p {
 }
 
 .social a:hover {
-    color: orange;
+    color: #ffa500;
 }
 
 footer hr {
     width: 80%;
     margin: 20px auto;
-    border: 0.5px solid #444;
+    border: 0.5px solid #444444;
 }
 
 /* ===================================
@@ -607,9 +610,11 @@ footer hr {
         flex-direction: column;
         background-color: rgba(0, 0, 0, 0.95);
         width: 100%;
+        height: calc(100vh - 70px);
         text-align: center;
         transition: 0.3s ease;
         padding: 20px 0;
+        z-index: 999;
     }
 
     nav.active {
@@ -628,9 +633,11 @@ footer hr {
     .hamburger.active .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
+
     .hamburger.active .bar:nth-child(2) {
         opacity: 0;
     }
+
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
