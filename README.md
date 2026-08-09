@@ -37,7 +37,7 @@ This portfolio features direct links to 3 live sub-projects hosted on GitHub Pag
 | :--- | :--- | :---: | :---: |
 | **Tic-Tac-Toe Game** | HTML5, CSS3, JavaScript | [Live Site](https://gb376052-cpu.github.io/TicTacToe/) | [Repository](https://github.com/gb376052-cpu/TicTacToe) |
 | **JS Calculator** | HTML5, CSS3, JavaScript | [Live Site](https://gb376052-cpu.github.io/JS-Calculator/) | [Repository](https://github.com/gb376052-cpu/JS-Calculator) |
-| **Weather App** | HTML5, CSS3, JavaScript, Fetch API | [Live Site](https://gb376052-cpu.github.io/weather-app/) | [Repository](https://github.com/gb376052-cpu/weather-app) |
+| **Weather App** | HTML5, CSS3, JavaScript, Fetch API | [Live Site](https://gb376052-cpu.github.io/weather-app//Weather/) | [Repository](https://github.com/gb376052-cpu/weather-app) |
 
 ---
 
