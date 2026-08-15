@@ -6,7 +6,7 @@ A clean, modern, fully responsive personal portfolio website built with HTML5, C
 
 ## 🌟 Live Demo
 
-🔗 **Main Portfolio:**(https://gb376052-cpu.github.io/MY_PORTFOLIO/)
+🔗 **Main Portfolio:** (https://gb376052-cpu.github.io/MY_PORTFOLIO/)
 
 ---
 
@@ -31,10 +31,12 @@ A clean, modern, fully responsive personal portfolio website built with HTML5, C
 
 ## 📂 Featured Projects Showcase
 
-This portfolio features direct links to 3 live sub-projects hosted on GitHub Pages:
+This portfolio features direct links to live featured and sub-projects:
 
 | Project | Tech Stack | Live Demo | Source Code |
 | :--- | :--- | :---: | :---: |
+| **Prime Karts** | HTML5, CSS3, JavaScript | [Live Site](https://primekarts.netlify.app/) | [Repository](https://github.com/gb376052-cpu) |
+| **Binance Trading Bot** | Python, Streamlit, APIs | [Live Site](https://binance-trading-bot-d4yhxzwc528r9bahufetzx.streamlit.app/) | [Repository](https://github.com/gb376052-cpu) |
 | **Tic-Tac-Toe Game** | HTML5, CSS3, JavaScript | [Live Site](https://gb376052-cpu.github.io/TicTacToe/) | [Repository](https://github.com/gb376052-cpu/TicTacToe) |
 | **JS Calculator** | HTML5, CSS3, JavaScript | [Live Site](https://gb376052-cpu.github.io/JS-Calculator/) | [Repository](https://github.com/gb376052-cpu/JS-Calculator) |
 | **Weather App** | HTML5, CSS3, JavaScript, Fetch API | [Live Site](https://gb376052-cpu.github.io/weather-app//Weather/) | [Repository](https://github.com/gb376052-cpu/weather-app) |
@@ -48,6 +50,6 @@ portfolio/
 │
 ├── index.html        # Main HTML layout
 ├── style.css         # Styling, themes, responsive breakpoints
-├── script.js        # Form validation, theme toggle, animations
+├── script.js         # Form validation, theme toggle, animations
 ├── README.md         # Documentation
 └── images/           # Profile picture and project thumbnails
