@@ -1,4 +1,4 @@
- /* ===================================
+/* ===================================
    Global Styles & Reset
 =================================== */
 html {
@@ -292,6 +292,7 @@ nav a.active::after {
 .html { width: 90%; height: 100%; background: orange; }
 .css { width: 80%; height: 100%; background: cyan; }
 .js { width: 60%; height: 100%; background: #FFD700; }
+.python { width: 85%; height: 100%; background: #3776ab; }
 .react { width: 40%; height: 100%; background: #00d8ff; }
 
 /* ===================================
