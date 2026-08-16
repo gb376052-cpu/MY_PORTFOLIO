@@ -44,7 +44,7 @@
             <!-- Hero Section Buttons -->
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">Explore Work 🚀</a>
-                <a href="cv.pdf" target="_blank" download="Gaurav_Bisht_CV.pdf" class="btn btn-primary">Download CV 📄</a>
+                <button onclick="openCV()" class="btn btn-primary">View CV 📄</button>
                 <a href="#contact" class="btn btn-primary">Get in Touch 📩</a>
             </div>
         </div>
@@ -209,7 +209,7 @@
                     <span>JavaScript</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://gb376052-cpu.github.io/JS-Calculator/" target="_blank" class="btn btn-primary">Live Demo</a>
+                    <a href="https://github.com/gb376052-cpu/JS-Calculator" target="_blank" class="btn btn-primary">Live Demo</a>
                     <a href="https://github.com/gb376052-cpu/JS-Calculator" target="_blank" class="btn btn-secondary">Source Code</a>
                 </div>
             </div>
@@ -258,6 +258,18 @@
         </form>
     </section>
 
+    <!-- CV Modal Popup -->
+    <div id="cvModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8);">
+        <div style="width: 80%; height: 90%; margin: 2% auto; background: white; padding: 15px; position: relative; border-radius: 8px;">
+            <span onclick="closeCV()" style="cursor:pointer; float:right; font-size: 35px; font-weight:bold; color: #333; line-height: 20px;">&times;</span>
+            <h3 style="margin-bottom: 10px; color: #333;">My Curriculum Vitae</h3>
+            <iframe src="cv.pdf" width="100%" height="82%" style="border: 1px solid #ccc;"></iframe>
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="cv.pdf" download="Gaurav_Bisht_CV.pdf" class="btn btn-primary" style="padding: 10px 20px; text-decoration: none; background: #007bff; color: white; border-radius: 5px;">Download File Now 📥</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer style="color: white;">
         <h2>Gaurav Bisht</h2>
@@ -271,6 +283,15 @@
         <p>© 2026 Gaurav Bisht. All Rights Reserved.</p>
     </footer>
 
+    <!-- Script for CV Modal -->
+    <script>
+        function openCV() {
+            document.getElementById("cvModal").style.display = "block";
+        }
+        function closeCV() {
+            document.getElementById("cvModal").style.display = "none";
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
