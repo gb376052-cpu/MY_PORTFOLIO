@@ -2,6 +2,17 @@
    Main Portfolio JavaScript File (script.js)
    ========================================================= */
 
+// Global functions for CV Modal (so inline HTML onclick works)
+window.openCV = function() {
+    const modal = document.getElementById("cvModal");
+    if (modal) modal.style.display = "block";
+};
+
+window.closeCV = function() {
+    const modal = document.getElementById("cvModal");
+    if (modal) modal.style.display = "none";
+};
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // ==========================================
@@ -121,61 +132,46 @@ document.addEventListener("DOMContentLoaded", () => {
             const phone = phoneInput ? phoneInput.value.trim() : "";
             const message = messageInput ? messageInput.value.trim() : "";
 
-            // Required Fields Check (Name, Email, Message)
-            if (name === "" || email === "" || message === "") {
+            // Validation Checks
+            if (name === "" || email === "" || phone === "" || message === "") {
                 alert("⚠️ Please fill in all required fields!");
                 return;
             }
 
-            // Email Format Check
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert("⚠️ Please enter a valid email address!");
                 return;
             }
 
-            // Optional Phone Format Check (Validates only if user filled it)
-            if (phone !== "") {
-                const phoneRegex = /^[0-9]{10}$/;
-                if (!phoneRegex.test(phone)) {
-                    alert("⚠️ Please enter a valid 10-digit phone number!");
-                    return;
-                }
-            }
-
-            // Button Loading State
-            const submitBtn = contactForm.querySelector("button[type='submit']");
-            const originalBtnText = submitBtn ? submitBtn.innerText : "Submit";
-            
-            if (submitBtn) {
-                submitBtn.innerText = "Sending...";
-                submitBtn.disabled = true;
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone)) {
+                alert("⚠️ Please enter a valid 10-digit phone number!");
+                return;
             }
 
             // EmailJS Send Logic
-            if (typeof emailjs !== "undefined") {
-                emailjs.sendForm('service_8qygxwu', 'template_xz5jk91', contactForm, 'n8WuR4Lsk1-9j6_nZ')
-                    .then(() => {
-                        alert("✅ Thank you! Your message has been sent successfully.");
-                        contactForm.reset();
-                    })
-                    .catch((error) => {
-                        alert("❌ Failed to send message. Please check the browser console.");
-                        console.error("EmailJS Error:", error);
-                    })
-                    .finally(() => {
-                        if (submitBtn) {
-                            submitBtn.innerText = originalBtnText;
-                            submitBtn.disabled = false;
-                        }
-                    });
-            } else {
-                alert("❌ Email service not loaded. Please try again later.");
-                if (submitBtn) {
+            const submitBtn = contactForm.querySelector("button[type='submit']");
+            const originalBtnText = submitBtn.innerText;
+            
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+
+            // Updated with your credentials
+            emailjs.sendForm('service_8qygxwu', 'template_xz5jk91', contactForm, 'n8WuR4Lsk1-9j6_nZ')
+                .then(() => {
+                    alert("✅ Thank you! Your message has been sent successfully.");
+                    contactForm.reset();
+                })
+                .catch((error) => {
+                    alert("❌ Failed to send message. Please check the browser console.");
+                    console.error("EmailJS Error:", error);
+                })
+                .finally(() => {
                     submitBtn.innerText = originalBtnText;
                     submitBtn.disabled = false;
-                }
-            }
+                });
         });
     }
+
 });
