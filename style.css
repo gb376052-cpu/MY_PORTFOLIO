@@ -19,6 +19,7 @@ body {
     background-attachment: fixed;
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 /* ===================================
@@ -42,11 +43,12 @@ header {
     color: #FFD700;
     letter-spacing: 2px;
     cursor: pointer;
-    transition: 0.4s;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo:hover {
     transform: scale(1.1);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
 }
 
 nav {
@@ -61,7 +63,7 @@ nav a {
     font-size: 18px;
     font-weight: bold;
     position: relative;
-    transition: 0.4s;
+    transition: 0.4s ease;
 }
 
 nav a:hover,
@@ -77,7 +79,8 @@ nav a::after {
     width: 0;
     height: 3px;
     background: #FFD700;
-    transition: 0.4s;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
 }
 
 nav a:hover::after,
@@ -94,11 +97,12 @@ nav a.active::after {
     cursor: pointer;
     font-size: 16px;
     margin-left: 20px;
-    transition: 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #theme-btn:hover {
-    transform: scale(1.08);
+    transform: scale(1.08) rotate(10deg);
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
 }
 
 /* Hamburger Icon for Mobile */
@@ -118,7 +122,7 @@ nav a.active::after {
 }
 
 /* ===================================
-   Hero Section
+   Hero Section & Staggered Animations
 =================================== */
 .hero {
     display: flex;
@@ -130,30 +134,40 @@ nav a.active::after {
 
 .hero-text {
     width: 50%;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.3s;
 }
 
+/* Staggered entry animations for professional look */
 .hero-text h3 {
     font-size: 28px;
     color: orange;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
 }
 
 .hero-text h1 {
     font-size: 60px;
     margin: 15px 0;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
 }
 
 .hero-text h2 {
     color: cyan;
     margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.6s;
 }
 
 .hero-text p {
     font-size: 20px;
     line-height: 32px;
     margin-bottom: 25px;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.8s;
 }
 
 /* Buttons */
@@ -161,26 +175,32 @@ nav a.active::after {
     display: flex;
     gap: 15px;
     margin-top: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 1s;
 }
 
 .btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     background-color: #FFD700;
     color: #000;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-block;
     border: 2px solid #FFD700;
     font-size: 15px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn:hover {
     background-color: #eab308;
     border-color: #eab308;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(255, 215, 0, 0.4);
 }
 
 .btn-primary {
@@ -197,11 +217,15 @@ nav a.active::after {
 .btn-secondary:hover {
     background-color: #FFD700;
     color: #000;
+    box-shadow: 0 12px 25px rgba(255, 215, 0, 0.4);
 }
 
-/* Hero Profile Image */
+/* Hero Profile Image with smooth floating & pulse glow */
 .hero-img {
     text-align: center;
+    opacity: 0;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.5s;
 }
 
 .hero-img img {
@@ -210,8 +234,13 @@ nav a.active::after {
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid #FFD700;
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
-    animation: floatImage 4s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    animation: floatImage 4s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+    transition: transform 0.5s ease;
+}
+
+.hero-img img:hover {
+    transform: scale(1.03);
 }
 
 /* ===================================
@@ -231,7 +260,13 @@ nav a.active::after {
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid #FFD700;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 0 35px rgba(255, 215, 0, 0.5);
 }
 
 .about-text {
@@ -253,6 +288,7 @@ nav a.active::after {
     font-size: 18px;
     line-height: 30px;
     margin-bottom: 15px;
+    color: #e2e8f0;
 }
 
 /* ===================================
@@ -279,107 +315,183 @@ nav a.active::after {
 .skill p {
     font-size: 20px;
     margin-bottom: 8px;
+    font-weight: 500;
 }
 
 .bar {
     width: 100%;
     height: 16px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.html { width: 90%; height: 100%; background: orange; }
-.css { width: 80%; height: 100%; background: cyan; }
-.js { width: 60%; height: 100%; background: #FFD700; }
-.python { width: 85%; height: 100%; background: #3776ab; }
-.react { width: 40%; height: 100%; background: #00d8ff; }
+.bar > div {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1);
+}
 
-/* ===================================
-   Projects Section
-=================================== */
+.html { width: 90%; background: linear-gradient(90deg, #f97316, orange); }
+.css { width: 80%; background: linear-gradient(90deg, #06b6d4, cyan); }
+.js { width: 60%; background: linear-gradient(90deg, #ca8a04, #FFD700); }
+.python { width: 85%; background: linear-gradient(90deg, #1e40af, #3776ab); }
+.react { width: 40%; background: linear-gradient(90deg, #0284c7, #00d8ff); }
+
+/* ======================
+   Projects Section 
+=========================*/
 .projects {
     padding: 100px 80px;
+    position: relative;
 }
 
 .projects h2 {
     text-align: center;
-    font-size: 40px;
+    font-size: 42px;
     color: #FFD700;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
+/* Category Headings Style */
 .projects-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 35px;
+    margin-top: 30px;
 }
 
 .project-card {
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 12px;
-    padding: 20px;
-    width: 320px;
-    text-align: center;
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    transition: 0.4s ease;
+    background: linear-gradient(145deg, rgba(20, 20, 25, 0.85), rgba(10, 10, 15, 0.95));
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 24px;
+    width: 350px;
+    text-align: left;
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* Card Hover Glow Effect */
 .project-card:hover {
-    transform: translateY(-8px);
-    border-color: orange;
-    box-shadow: 0 15px 30px rgba(255, 165, 0, 0.3);
+    transform: translateY(-12px);
+    border-color: #FFD700;
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
 }
 
+/* Image Container with Zoom effect */
 .project-card img {
     width: 100%;
-    height: 180px;
+    height: 190px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
 }
 
 .project-card h3 {
     color: #FFD700;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 .project-card p {
     font-size: 14px;
-    line-height: 22px;
-    margin-bottom: 15px;
-    color: #e0e0e0;
+    line-height: 24px;
+    margin-bottom: 20px;
+    color: #cbd5e1;
 }
 
-/* Tech Stack Badges Styling */
+/* Tech Stack Badges Style */
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    justify-content: center;
-    margin: 12px 0 18px 0;
+    margin: 10px 0 20px 0;
 }
 
 .tech-stack span {
-    background-color: rgba(255, 215, 0, 0.15);
-    color: #FFD700;
-    font-size: 12px;
+    background-color: rgba(255, 215, 0, 0.08);
+    color: #ffea79;
+    font-size: 11px;
     font-weight: 600;
     padding: 5px 12px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    display: inline-block;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
+.tech-stack span:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Project Action Buttons */
 .project-links {
-    margin-top: 15px;
+    margin-top: auto;
     display: flex;
+    gap: 12px;
+}
+
+.project-links .btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Primary Button (Live Demo) */
+.project-links .btn-primary, 
+.project-links .btn:not(.btn-secondary) {
+    background: linear-gradient(135deg, #FFD700, #ffa500);
+    color: #000;
+    border: none;
+}
+
+.project-links .btn-primary:hover, 
+.project-links .btn:not(.btn-secondary):hover {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+    transform: translateY(-2px);
+    color: #000;
+}
+
+/* Secondary Button (Source Code) */
+.project-links .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #FFD700;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.project-links .btn-secondary:hover {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: #FFD700;
+    color: #FFD700;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
 }
 
 /* ===================================
@@ -405,34 +517,41 @@ nav a.active::after {
 
 .service-card {
     width: 310px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
     padding: 30px;
     text-align: center;
-    border-radius: 15px;
-    transition: 0.4s;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     border-color: orange;
-    box-shadow: 0 15px 30px rgba(255, 165, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(255, 165, 0, 0.25);
 }
 
 .service-icon {
     font-size: 50px;
     margin-bottom: 15px;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.15) rotate(5deg);
 }
 
 .service-card h3 {
     margin-bottom: 15px;
     color: orange;
+    font-size: 22px;
 }
 
 .service-card p {
     font-size: 16px;
     line-height: 26px;
-    color: #e0e0e0;
+    color: #cbd5e1;
 }
 
 /* ===================================
@@ -464,16 +583,17 @@ input, textarea {
     border-radius: 8px;
     font-size: 16px;
     outline: none;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 input:focus, textarea:focus {
     border-color: #FFD700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    background: rgba(0, 0, 0, 0.85);
 }
 
 input::placeholder, textarea::placeholder {
-    color: #ccc;
+    color: #94a3b8;
 }
 
 textarea {
@@ -484,26 +604,28 @@ textarea {
 form button {
     width: 100%;
     padding: 16px;
-    background: orange;
+    background: linear-gradient(135deg, orange, #ff4500);
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
 }
 
 form button:hover {
-    background: #ff4500;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 69, 0, 0.5);
+    background: linear-gradient(135deg, #ff4500, orange);
 }
 
 /* ===================================
    Footer
 =================================== */
 footer {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     text-align: center;
     padding: 40px 20px;
     margin-top: 60px;
@@ -518,7 +640,7 @@ footer h2 {
 footer p {
     font-size: 16px;
     margin: 8px 0;
-    color: #ccc;
+    color: #94a3b8;
 }
 
 .social {
@@ -530,17 +652,19 @@ footer p {
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .social a:hover {
     color: orange;
+    transform: translateY(-3px) scale(1.1);
 }
 
 footer hr {
     width: 80%;
     margin: 20px auto;
-    border: 0.5px solid #444;
+    border: 0.5px solid #334155;
 }
 
 /* ===================================
@@ -551,15 +675,26 @@ footer hr {
     50% { transform: translateY(-15px); }
 }
 
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+    50% { box-shadow: 0 0 35px rgba(255, 215, 0, 0.6); }
+}
+
 @keyframes fadeUp {
-    0% { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% { 
+        opacity: 0; 
+        transform: translateY(40px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s ease-in-out;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.active {
@@ -571,17 +706,17 @@ footer hr {
    Dark Mode Adjustments
 =================================== */
 .dark-mode {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url("nature.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.92)), url("nature.jpg");
 }
 
 .dark-mode .project-card,
 .dark-mode .service-card {
-    background: rgba(0, 0, 0, 0.85);
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: rgba(0, 0, 0, 0.88);
+    border: 1px solid rgba(255, 215, 0, 0.35);
 }
 
 .dark-mode header {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.92);
 }
 
 /* ===================================
@@ -606,11 +741,13 @@ footer hr {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.95);
+        background-color: rgba(0, 0, 0, 0.96);
+        backdrop-filter: blur(15px);
         width: 100%;
         text-align: center;
-        transition: 0.3s ease;
-        padding: 20px 0;
+        transition: 0.4s ease;
+        padding: 25px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     }
 
     nav.active {
